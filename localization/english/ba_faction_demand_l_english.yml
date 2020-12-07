@@ -1,0 +1,3 @@
+﻿l_english:
+  BA_SUPPORTED_WAR_READY:0 "You've reached your power threshold for [Faction.GetSpecialTitle]!"
+  BA_SUPPORTED_WAR_READY_DESC:0 "War Ready"

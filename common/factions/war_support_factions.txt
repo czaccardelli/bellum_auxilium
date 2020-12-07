@@ -1,0 +1,82 @@
+﻿war_support_faction = {
+    casus_belli = ba_claim_cb
+
+    short_effect_desc = war_support_faction_short_effect_desc
+
+    show_special_title = yes
+
+    sort_order = 1
+
+    # actually, content_progress!
+    discontent_progress = {
+        # TODO: change base to script value using modifier
+        base = 10
+
+    }
+
+    power_threshold = {
+        base = 20
+    }
+
+    is_character_valid = {
+        scope:faction.faction_target = liege
+        highest_held_title_tier >= tier_county
+    }
+
+    demand = {
+		save_scope_as = faction
+
+		faction_leader = {
+			save_scope_as = faction_leader
+		}
+
+		faction_target = {
+			save_scope_as = faction_target
+		}
+
+		# Let the human players in the faction know that the demand will be sent
+		every_faction_member = {
+			limit = {
+				is_ai = no
+				NOT = { this = scope:faction.faction_leader }
+			}
+			trigger_event = ba_faction_demand.0002
+		}
+
+		faction_target = {
+			trigger_event = {
+				id = ba_faction_demand.0001
+				days = 5
+			}
+		}
+    }
+
+    ai_create_score = {
+        base = -1
+    }
+
+    ai_join_score = {
+        base = 1
+    }
+
+    ai_demand_chance = {
+        base = 0
+    }
+
+    can_character_join = {
+        highest_held_title_tier >= tier_county
+    }
+
+    can_character_create = {
+        any_claim = {
+            count > 0
+        }
+    }
+
+    county_allow_create = yes
+    county_allow_join = yes
+
+    show_special_title = yes
+
+    on_war_start = {}
+}

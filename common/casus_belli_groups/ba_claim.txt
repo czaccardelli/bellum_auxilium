@@ -1,0 +1,3 @@
+﻿ba_claim = {
+    can_only_start_via_script = yes
+}

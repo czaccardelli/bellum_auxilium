@@ -1,0 +1,29 @@
+﻿namespace = ba_faction_demand
+
+ba_faction_demand.0001 = {
+    hidden = yes
+    
+    immediate = {
+        #DEBUG
+        send_interface_message = {
+            type = event_ba_war_support
+            #title = BA_SUPPORTED_WAR_READY
+            desc = BA_SUPPORTED_WAR_READY_DESC
+        }
+        #DEBUG
+    }
+}
+
+ba_faction_demand.0002 = {
+    hidden = yes
+
+    immediate = {
+        send_interface_message = {
+            type = event_ba_war_support
+            title = BA_SUPPORTED_WAR_READY
+            desc = BA_SUPPORTED_WAR_READY_DESC
+            right_icon = scope:faction.special_title
+        }
+    }
+
+}
