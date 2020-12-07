@@ -476,7 +476,7 @@ window = {
 						enabled = "[DeclareWarInteractionWindow.CanSend]"
 						onclick = "[DeclareWarInteractionWindow.Send]"
 
-						text = "[CharacterInteractionConfirmationWindow.GetSendName]"
+						text = "prepare_for_war"
 						default_format = "#high"
 
 						tooltip = "[DeclareWarInteractionWindow.GetDeclareWarButtonTooltip]"
@@ -498,116 +498,6 @@ window = {
 								visible = "[And(DeclareWarInteractionWindow.HasSelectedCasusBelli, Or( Or( Not( DeclareWarInteractionWindow.CanAffordCosts ), DeclareWarInteractionWindow.IsBreakingTruce), DeclareWarInteractionWindow.IsBreakingAlliance))]"
 								texture = "gfx/interface/icons/symbols/icon_warning.dds"
 								size = { 30 30 }
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	window = {
-		name = "character_ally_list_subview"
-
-		datacontext = "[DeclareWarInteractionWindow.GetAllyListContext]"
-		visible = "[AllyListSubview.IsShown]"
-		parentanchor = top|right
-		position = { -580 120 }
-		size = { 480 750 }
-		movable = no
-
-		using = Window_Background_Subwindow
-		using = Animation_ShowHide_Standard
-
-		vbox = {
-			margin = { 3 3 }
-
-			header_pattern = {
-				layoutpolicy_horizontal = expanding
-
-				blockoverride "header_text"
-				{
-					text = "[AllyListSubview.GetHeaderTitle]"
-				}
-				blockoverride "button_close"
-				{
-					onclick = "[AllyListSubview.Close]"
-				}
-			}
-
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				margin_left = 20
-				spacing = 5
-
-				text_single = {
-					text = "SORT_BY"
-					align = nobaseline
-				}
-
-				dropdown_sort_characterlist = {
-					datamodel = "[AllyListSubview.GetSortItems]"
-					onselectionchanged = "[AllyListSubview.SetCurrentFilterFromIndex]"
-					selectedindex = "[AllyListSubview.GetCurrentFilterIndex]"
-				}
-
-				expand = {}
-			}
-
-			expand = {}
-
-			scrollbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-
-				blockoverride "scrollbox_margins"
-				{
-					margin = { 10 15 }
-				}
-
-				blockoverride "scrollbox_content"
-				{
-					vbox = {
-						datamodel = "[AllyListSubview.GetAllyList]"
-						layoutpolicy_horizontal = expanding
-						spacing = 15
-
-						item = {
-							hbox = {
-								background = {
-									using = Background_Area
-								}
-								layoutpolicy_horizontal = expanding
-								portrait_head_small = {}
-
-								vbox = {
-									layoutpolicy_vertical = expanding
-
-									expand = {}
-
-									text_single = {
-										name = "ally_character_name"
-										text = "[Character.GetName]"
-										using = Font_Size_Medium
-										align = nobaseline
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-
-										text_single = {
-											name = "ally_military_strength_text"
-											text = "DECLARE_WAR_ALLY_MILITARY_STRENGTH_DESC"
-											align = nobaseline
-										}
-
-										expand = {}
-									}
-
-									expand = {}
-								}
-
-								expand = {}
 							}
 						}
 					}
